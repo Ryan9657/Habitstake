@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HabitStake - Arc Chain</title>
+    
+    <!-- React and Babel via CDN to run your .jsx file -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="bg-slate-950 text-white">
+    <div id="root"></div>
+
+    <!-- Include your HabitStake.jsx code directly -->
+    <script type="text/babel" src="./HabitStake.jsx"></script>
+
+    <!-- Render the app to the root div -->
+    <script type="text/babel">
+      // This assumes your main component inside HabitStake.jsx is named HabitStake
+      // If it has a different name, change <HabitStake /> below to match it!
+      const root = losers || ReactDOM.createRoot(document.getElementById('root'));
+      root.render(<HabitStake />);
+    </script>
+  </body>
+</html>
