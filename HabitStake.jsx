@@ -5,7 +5,42 @@ import {
   Sparkles, Copy, Users, Lock, Star, Camera, Sun, Check, ExternalLink
 } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
+// Helper to initialize the Circle User-Controlled Wallet
+async function initializeHabitStakeWallet(userId) {
+  try {
+    const response = await fetch('/api/users/init-wallet', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId })
+    });
+    
+    const { userToken, encryptionKey, challengeId } = await response.json();
 
+    if (typeof window !== 'undefined' && typeof W3SSdk !== 'undefined') {
+      const sdk = new W3SSdk();
+      
+      sdk.setAppSettings({
+        appId: "your_actual_app_id_here" //3b6e1d24-d1ce-5603-bc06-07ac46fb6bdf
+      });
+
+      sdk.setAuthentication({
+        userToken,
+        encryptionKey,
+      });
+
+      sdk.execute(challengeId, (error, result) => {
+        if (error) {
+          console.error('Circle Wallet Error:', error.message);
+          return;
+        }
+        console.log('Wallet Ready:', result);
+        alert('Your secure HabitStake wallet is active!');
+      });
+    }
+  } catch (err) {
+    console.error("Wallet initialization failed:", err);
+  }
+}
 /* --------------------------------------------------------------------- */
 /* DATA                                                                   */
 /* --------------------------------------------------------------------- */
