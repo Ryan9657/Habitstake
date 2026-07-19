@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import {
-  Shield, Flame, Wallet, ChevronDown, ChevronRight, ChevronLeft, Home, Rocket, Trophy,
-  Landmark, Upload, CheckCircle2, Loader2, BookOpen, Dumbbell, Brain, Github, MapPin,
-  Sparkles, Copy, Users, Lock, Star, Camera, Sun, Check, ExternalLink
-} from 'lucide-react';
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
+// Map globals from CDNs
+const { useState } = React;
+const { 
+  Shield, Flame, Wallet, ChevronDown, ChevronRight, ChevronLeft, Home, Rocket, Trophy, 
+  Landmark, Upload, CheckCircle2, Loader2, BookOpen, Dumbbell, Brain, Github, MapPin, 
+  Sparkles, Copy, Users, Lock, Star, Camera, Sun, Check, ExternalLink 
+} = Lucide; // or use the global fallback if lucide-react sets it globally
+const { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } = Recharts;
 // Helper to initialize the Circle User-Controlled Wallet
 async function initializeHabitStakeWallet(userId) {
   try {
